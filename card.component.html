@@ -1,0 +1,24 @@
+<!-- 
+    1. ng-content is used for content projection
+    2. <ng-content> acts as a placeholder
+    3. We can project content from parent component to child component
+    4. This helps us achieve modularity and reusability of a component
+-->
+
+<!-- 
+    1. @ViewChild() is used to access DOM elements in the component class
+    2. We can also access child component inside parent component 
+ -->
+
+<div class="card">
+    <div class="card-body">
+        <ng-content select = ".bi"></ng-content>
+        <p></p>
+        <ng-content select = "h5"></ng-content>
+        <p></p>
+        <ng-content select = ".card-title"></ng-content>
+        <hr>
+        <ng-content select = ".card-text"></ng-content>
+        <ng-content select = ".btn"></ng-content>
+    </div>
+</div>

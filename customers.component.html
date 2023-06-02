@@ -1,0 +1,64 @@
+<br>
+<div class="container">
+    <div class="row gy-4">
+        <div class="col-md-3">
+            <br>
+            <a class="btn btn-outline-primary" style = "width: 220px;" routerLink="customerlist">View Customers</a>
+            <br><br>
+            <a class="btn btn-outline-primary" style = "width: 220px;" routerLink="addcustomer">Add Customer</a>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    Total Customers
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <h3 style="font-weight: bolder; color: rgb(4, 110, 4);">85</h3>
+                        <p>There are 23 new customers compared to last month</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header bg-dark text-light">
+                    Customer Service Philosophy
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Delivering exceptional service by prioritizing customer needs, fostering positive relationships, and exceeding expectations for lasting satisfaction</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br><br>
+
+<router-outlet></router-outlet>
+
+<!--
+When you have nested routing with multiple <router-outlet> elements, the Angular Router determines 
+which <router-outlet> to use based on the route configuration and the nesting level of the components.
+The <router-outlet> in the parent component is the primary outlet and is used to render the top-level routes.
+It is typically placed in the template of the parent component.The <router-outlet> in the child component is 
+a secondary outlet and is used to render nested routes within the parent component. It is typically placed 
+in the template of the child component.
+
+const routes: Routes = [
+  {
+    path: 'parent',
+    component: ParentComponent,
+    children: [
+      { path: 'child1', component: Child1Component },
+      { path: 'child2', component: Child2Component },
+    ]
+  },
+];
+
+In summary, the primary <router-outlet> in the parent component is responsible for rendering the 
+top-level routes, while the secondary <router-outlet> in the child component is used for rendering 
+nested routes within the parent component.
+
+-->
+

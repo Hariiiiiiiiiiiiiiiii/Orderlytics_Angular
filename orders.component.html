@@ -1,0 +1,172 @@
+<div class="container">
+    <br>
+    <app-info></app-info>
+    <div class="row gy-4">
+        <div class="col-md-7">
+            <br>
+            <div class="container-my-2">
+                <form #form="ngForm">
+                    <div class="row mb-3 gy-4">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="foodId">Food Id</label>
+                                <input type="text" pInputText class="form-control" id="foodId" name="foodId" [(ngModel)]="foodId"
+                                    readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <!-- <div class="form-group">
+                                <label>Food Name</label>
+                                <p-dropdown [options]="foodItems" [(ngModel)]="itemName"  
+                                [filter]="true" filterBy="itemName" [showClear]="true" placeholder="Select Food Item"></p-dropdown>
+                            </div>  -->
+                            <!-- 
+                            <div class="form-group">
+                                <label for="itemName">Food Name</label>
+                                <p-autoComplete [(ngModel)]="itemName" [suggestions]="foodItems" (completeMethod)="searchItems($event)" field="itemName" [minLength]="1"></p-autoComplete>
+                            </div> -->
+
+                            <div class="form-group">
+                                <label for="itemName">Food Name</label>
+                                <input type="text" class="form-control" id="itemName" name="itemName" pInputText
+                                [(ngModel)]="itemName" placeholder="Enter Item Name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2 gy-4">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <input type="number" pInputText class="form-control" id="quantity" name="quantity"
+                                 min="0" [(ngModel)]="quantity" placeholder="Quantity">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="itemPrice">Price</label>
+                                <input type="number" pInputText class="form-control" id="itemPrice" name="itemPrice"
+                                [(ngModel)]="itemPrice" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <br>
+                            <button class= "btn btn-outline-danger" disabled *ngIf = "disabled; else available" 
+                            style="color: red; border: none; outline: none;">Not Available</button>
+                            <ng-template #available>
+                                <button class= "btn btn-outline-success" disabled
+                                style="color: green; border: none; outline: none;">Available</button>
+                            </ng-template>
+                        </div>
+                    </div>
+                    <div class="row mb-2 gy-3">
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <br>
+                                <a class="btn btn-outline-primary" (click) = "fillDetails()">Check</a>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <br>
+                                <button class="btn btn-outline-info" [disabled] = "disabled" (click)="addItem()">Add Item</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <br>
+                </form>
+            </div>
+
+            <div class="container-my-4">
+                <form #form="ngForm">
+                    <div class="row mb-4 gy-4">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="customerId">Customer Id</label>
+                                <input type="text" pInputText class="form-control" id="customerId" [(ngModel)]="customerId"
+                                    name="customerId" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="customerPhoneNumber">Phone Number</label>
+                                <input type="text" pInputText class="form-control" id="customerPhoneNumber" name="customerLastName"
+                                    [(ngModel)]="customerPhoneNumber" (keyup.enter)="addCustomer()"
+                                    placeholder="Enter Phone Number">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <br>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" fill="currentColor"
+                                    class="bi bi-x-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    <path
+                                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                                        (click)="resetCustomerDetails()" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4 gy-4">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class = "amount" for="totalAmount">
+                                    Total Amount 
+                                </label>
+                                <div class="p-inputgroup">
+                                    <span class="p-inputgroup-addon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                                            <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
+                                          </svg>
+                                    </span>
+                                    <input type="number" pInputText class="form-control" id="totalAmount" name="totalAmount"
+                                    [(ngModel)]="totalAmount" readonly>
+                                </div>
+
+                              
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <br>
+                                <a class="btn btn-success" (click) = "placeOrder()">Take Order</a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <br>
+            <table class="table">
+                <thead class="bg-gray text-dark">
+                    <tr>
+                        <th scope="col">Item Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope = "col">Total</th>
+                        <th scope = "col">Cancel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let foodItem of foods; let i = index">
+                        <td>{{ foodItem.itemName }}</td>
+                        <td>{{ foodItem.quantity }}</td>
+                        <td>₹ {{ foodItem.quantity * foodItem.itemPrice}}</td>
+                        <td><a (click)="removeItem(foodItem, i)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                            class="bi bi-x-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                                />
+                        </svg>
+                        </a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <p-toast></p-toast>
+</div>

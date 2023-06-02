@@ -1,0 +1,35 @@
+<div class="container">
+    <img class="logo" src="/assets/logo.png" width="200px" height="250px">
+    
+    <!-- login.component.html -->
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup] = "loginForm">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" class="form-control" id="username" 
+                                formControlName = "username"
+                                placeholder="Enter your username">
+                            </div>
+                            <span *ngIf = "loginForm.controls['username'].dirty && loginForm.hasError('required', 'username')" class = "text-danger">Username is required</span>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password"
+                                formControlName = "password"
+                                placeholder="Enter your password">
+                            </div>
+                            <span *ngIf = "loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')" class = "text-danger">Password is required</span>
+                            <br>
+                            <button (click) = "onLogin()" type="submit" class="btn btn-success">Login</button>
+                            <br><br>
+                            <a type="button" class="btn btn-primary" routerLink = "/register">Sign up</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p-toast></p-toast>
+</div>

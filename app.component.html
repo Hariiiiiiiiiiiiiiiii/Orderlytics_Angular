@@ -1,0 +1,41 @@
+<!-- navigation bar -->
+
+<div class="container">
+  <div *ngIf="showNavigationBar" class="row">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">Orderlytics</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-dark" routerLink="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" routerLink="/customers">Customers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" routerLink="/employees">Employees</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" routerLink="/fooditems">Food Items</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" routerLink="/orders">Take Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" routerLink="/aboutus">Learnings</a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-outline-danger" (click) = "logout()">Log out</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!--main page content-->
+  <router-outlet></router-outlet>
+</div>
+<p-toast></p-toast>

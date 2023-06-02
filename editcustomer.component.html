@@ -1,0 +1,68 @@
+<div class="container-my-4">
+    <form #form = "ngForm" (ngSubmit) = "updateCustomer()">
+        <div class="row mb-4 gy-4">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="customerId">Customer ID</label>
+                    <input type="text" class="form-control" id="customerId" 
+                    name = "customerId"
+                    [(ngModel)] = "customerDetails.customerId"
+                    placeholder="Enter Customer ID" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4 gy-4">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="customerFirstName">First Name</label>
+                    <input type="text" class="form-control" id="customerFirstName" 
+                    name = "customerFirstName"
+                    [(ngModel)] = "customerDetails.customerFirstName"
+                    placeholder="Enter First Name">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="customerLastName">Last Name</label>
+                    <input type="text" class="form-control" id="customerLastName" 
+                    name = "customerLastName"
+                    [(ngModel)] = "customerDetails.customerLastName"
+                    placeholder="Enter Last Name">
+                </div>
+            </div>
+        </div>
+        <div class="row mb-4 gy-4">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="customerEmail">Email</label>
+                    <input type="email" class="form-control" id="customerEmail" 
+                    name = "customerEmail"
+                    [(ngModel)] = "customerDetails.customerEmail"
+                    placeholder="Enter Email">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="customerPhoneNumber">Phone Number</label>
+                    <input type="tel" class="form-control" id="customerPhoneNumber" 
+                    name = "customerPhoneNumber"
+                    [(ngModel)] = "customerDetails.customerPhoneNumber"
+                    placeholder="Enter Phone Number">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-md-5 d-flex">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-info">Update</button>
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-outline-danger" (click) = "deleteCustomer()">Delete</a>
+            </div>
+            <div class="col-md-2">
+                <a class="btn btn-outline-primary" routerLink="/customers/customerlist">Back</a>
+            </div>
+        </div>
+    </form>
+    <p-toast></p-toast>
+</div>
